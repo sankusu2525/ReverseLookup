@@ -1,0 +1,18 @@
+$servers = get-content ".\Desktop\Book1.csv"
+foreach ($server in $servers) {
+  $addresses = ""
+  $addresses = [System.Net.Dns]::GetHostEntry($server)
+  foreach($a in $addresses) {
+    "{0},{1}" -f $server, $a.IPAddressToString
+  }
+}
+
+
+$servers = get-content ".\desktop\Book1.csv"
+foreach ($server in $servers) {
+  $addresses = ""
+  $addresses = [System.Net.Dns]::GetHostEntry($server)
+  foreach($a in $addresses) {
+    "{0},{1}" -f $server, $a.HostName
+  }
+}
